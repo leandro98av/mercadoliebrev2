@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title"><%= product.name %></h2>
+            </div>
+                    <div class="col-12">
+                        <section class="product-box row">
+                                <figure class="product-box_image col-12 col-lg-8">
+                                    <img src="/images/products/<%=product.image%>" alt="imagen de producto">
+                                    <p class="description col-12"><%=product.description%></p>
+                                </figure>
+                                <article class="detalle col-12 col-lg-4">
+                                    <h2><%=product.name%></h2>
+                                    <% if (product.discount > 0) { %>
+                                        <span class="tachado">$<%=toThousand(product.price)%></span><SPAN>/ <%=product.discount%>% OFF</span>
+                                        <% } %>
+                                    <h3>$<%=toThousand(product.price - (product.price/ 100 * product.discount))%></h3>
+                                    <div class="mensajes">
+                                        <div class="tarjeta"><i class="fas fa-credit-card"></i><p>Pagá en 12 cuotas sin interés.</p></div>
+                                        <div class="tarjeta"><i class="fas fa-store"></i><p>Retiro gratis en locales del vendedor.</p></div>
+                                        
+                                    </div>
+                                    <button>COMPRAR AHORA</button>
+                                    
+                                </article>
+                        </section>
+                    </div>
+            
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
+    
+</body>
+</html>
